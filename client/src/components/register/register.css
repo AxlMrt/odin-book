@@ -1,0 +1,27 @@
+:root {
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255, .7);
+}
+
+.modal_container {
+  background: white;
+  padding: .6rem 1rem;
+}
+
+.modal_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal_title > h3 {
+  font-size: 2rem;
+}

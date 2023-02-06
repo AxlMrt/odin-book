@@ -1,0 +1,98 @@
+:root {
+  --bg: #f0f2f5;
+  --border: #dddfe2;
+  --outline: rgb(197 144 57 / .7);
+  --gold: rgb(206 151 62);
+  --goldHover: rgb(189, 134, 47);
+  --green: #42b72a;
+  --greenHover: #40a52c;
+}
+
+@media screen and (max-width: 769px) {
+  #login_page {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#login_page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 10%;
+  gap: 10%;
+}
+
+.login_hero > h1 {
+  color: var(--gold);
+  font-size: 5.25rem;
+}
+
+.login_hero > h2 {
+  font-weight: 400;
+}
+
+.login_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 1rem 1rem 1.5rem 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.login_form > input,
+.login_form > button {
+  width: 20rem;
+  padding: .8rem 1rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: .4rem;
+  transition: all .18s ease-out;
+  outline: none;
+}
+
+.login_form > input:focus {
+  border: 1px solid var(--outline);
+}
+
+.login_form > button {
+  background: var(--gold);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.login_card > button {
+  background: var(--green);
+  color: white;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 3rem;
+  border-radius: .4rem;
+  border: none;
+  transition: all .18s ease-out;
+  cursor: pointer;
+}
+
+.login_card > button:hover {
+  background: var(--greenHover);
+}
+
+.login_form > button:hover {
+  background: var(--goldHover);
+}

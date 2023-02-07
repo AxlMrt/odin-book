@@ -50,7 +50,7 @@ export default function Register({ open, onClose }) {
       "Elle",
       "Il",
       "Neutre"
-    ]
+    ];
     return Array.from(new Array(3), (value, index) => (
       <option key={pronoun[index] + index} value={pronoun[index]}>
         {pronoun[index]}
@@ -133,7 +133,7 @@ export default function Register({ open, onClose }) {
               {checked && (
                 <div className="gender_select">
                   <select name="" id="">
-                    <option selected="selected">
+                    <option selected="1" value disabled="1">
                       Sélectionnez votre pronom
                     </option>
                     {pronounList()}

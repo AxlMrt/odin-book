@@ -8,3 +8,8 @@
   box-sizing: border-box;
   font-family: Nunito;
 }
+
+input:focus,
+select:focus {
+  outline: none;
+}

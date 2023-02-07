@@ -5,7 +5,7 @@ import './login.css';
 export default function Login() {
   const [openModal, setOpenModal] = useState(false);
   return (
-    <section id='login_page'>
+    <section id="login_page">
       <div className="login_hero">
         <h1>odinbook</h1>
         <h2>
@@ -14,12 +14,24 @@ export default function Login() {
         </h2>
       </div>
       <div className="login_card">
-        <form action="" className='login_form'>
-          <input type="text" name="" id="email" />
-          <input type="password" name="" id="password" />
-          <button type='submit'>Se connecter</button>
+        <form action="" className="login_form">
+          <input
+            type="text"
+            name=""
+            id="email"
+            placeholder="Adresse e-mail"
+          />
+          <input
+            type="password"
+            name=""
+            id="password"
+            placeholder="Mot de passe"
+          />
+          <button type="submit">Se connecter</button>
         </form>
-        <button onClick={() => setOpenModal(!openModal)}>Créer nouveau compte</button>
+        <button onClick={() => setOpenModal(!openModal)}>
+          Créer nouveau compte
+        </button>
       </div>
       <Register open={openModal} onClose={() => setOpenModal(false)} />
     </section>

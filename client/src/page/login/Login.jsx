@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Register from '../../components/register/Register';
 import './login.css';
 
 export default function Login() {
   const [openModal, setOpenModal] = useState(false);
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <section id="login_page">
       <div className="login_hero">
@@ -16,18 +23,22 @@ export default function Login() {
       <div className="login_card">
         <form action="" className="login_form">
           <input
-            type="text"
-            name=""
+            type="email"
             id="email"
+            ref={emailRef}
             placeholder="Adresse e-mail"
+            required
           />
           <input
             type="password"
-            name=""
             id="password"
+            ref={passwordRef}
             placeholder="Mot de passe"
+            required
           />
-          <button type="submit">Se connecter</button>
+          <button type="submit" id="submitBtn">
+            Se connecter
+          </button>
         </form>
         <button type="button" onClick={() => setOpenModal(!openModal)}>
           Créer nouveau compte

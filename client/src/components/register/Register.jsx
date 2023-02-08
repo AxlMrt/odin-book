@@ -46,17 +46,13 @@ export default function Register({ open, onClose }) {
   };
 
   const pronounList = () => {
-    const pronoun = [
-      "Elle",
-      "Il",
-      "Neutre"
-    ];
+    const pronoun = ['Elle', 'Il', 'Neutre'];
     return Array.from(new Array(3), (value, index) => (
       <option key={pronoun[index] + index} value={pronoun[index]}>
         {pronoun[index]}
       </option>
     ));
-  }
+  };
 
   return (
     <section className="overlay" onClick={onClose}>

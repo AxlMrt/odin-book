@@ -29,7 +29,7 @@ export default function Login() {
           />
           <button type="submit">Se connecter</button>
         </form>
-        <button onClick={() => setOpenModal(!openModal)}>
+        <button type="button" onClick={() => setOpenModal(!openModal)}>
           Créer nouveau compte
         </button>
       </div>

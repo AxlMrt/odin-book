@@ -31,18 +31,6 @@ describe('Login form', () => {
     expect(submitBtn).toBeTruthy();
   });
 
-  it('Should render correct placeholder and text', () => {
-    render(<Login />);
-
-    const inputMail = screen.getByPlaceholderText(/Adresse e-mail/);
-    const inputPass = screen.getByPlaceholderText(/Mot de passe/);
-    const submitBtn = screen.getByText(/Se connecter/);
-
-    expect(inputMail).toBeInTheDocument();
-    expect(inputPass).toBeInTheDocument();
-    expect(submitBtn).toBeInTheDocument();
-  });
-
   it('Should test input fields', () => {
     render(<Login />);
     const inputMail = document.getElementById('email');
@@ -100,7 +88,7 @@ describe('Open modal', () => {
   it('Should open modal on click', () => {
     render(<Login />);
 
-    const modalBtn = screen.getByText(/Créer nouveau compte/);
+    const modalBtn = document.getElementById('login_modal');
 
     const modalTitle = screen.queryByText(/S'inscrire/);
     expect(modalTitle).not.toBeInTheDocument();

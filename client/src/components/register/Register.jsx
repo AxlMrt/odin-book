@@ -73,7 +73,7 @@ export default function Register({ open, onClose }) {
             <input type="text" placeholder="Prénom" />
             <input type="text" placeholder="Nom de famille" />
           </div>
-          <input type="email" name="" id="email" placeholder="E-mail" />
+          <input type="email" name="" placeholder="E-mail" />
           <input
             type="password"
             name=""

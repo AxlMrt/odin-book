@@ -88,7 +88,7 @@ describe('Open modal', () => {
   it('Should open modal on click', () => {
     render(<Login />);
 
-    const modalBtn = document.getElementById('login_modal');
+    const modalBtn = screen.getByText(/Créer nouveau compte/);
 
     const modalTitle = screen.queryByText(/S'inscrire/);
     expect(modalTitle).not.toBeInTheDocument();

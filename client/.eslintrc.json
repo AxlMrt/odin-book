@@ -9,6 +9,7 @@
         "airbnb/hooks",
         "eslint:recommended",
         "plugin:react/recommended",
+        "plugin:react-redux/recommended",
         "plugin:prettier/recommended",
         "plugin:import/recommended",
         "plugin:jsx-a11y/recommended",
@@ -31,7 +32,8 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "react-redux"
     ],
 
     "settings": {
@@ -52,5 +54,6 @@
       "react/prop-types": "off",
       "prettier/prettier": ["error", { "singleQuote": true }],
       "quotes": ["error", "single", { "avoidEscape": true }]
+      
     }
 }

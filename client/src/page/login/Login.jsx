@@ -1,4 +1,7 @@
 import React, { useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { authActions } from '../../redux/actions';
 import Register from '../../components/register/Register';
 import './login.css';
 
@@ -6,9 +9,13 @@ export default function Login() {
   const [openModal, setOpenModal] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(authActions.login());
+    navigate('/home');
   };
 
   return (
@@ -21,7 +28,7 @@ export default function Login() {
         </h2>
       </div>
       <div className="login_card">
-        <form action="" className="login_form">
+        <form action="" className="login_form" onSubmit={handleSubmit}>
           <input
             type="email"
             id="email"

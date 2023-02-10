@@ -5,7 +5,7 @@
 }
 
 header {
-  position: fixed;
+  position: sticky;
   width: 100%;
   height: 3.5rem;
   background: white;
@@ -14,15 +14,20 @@ header {
   justify-content: space-between;
   padding: 0 1rem;
   box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+  top: 0;
   z-index: 1;
 }
 
 .logo {
+  flex: 3;
   color: var(--logo);
 }
 
+nav {
+  flex: 3.5;
+}
+
 .search_container {
-  width: 42.5rem;
   height: 2.5rem;
   display: flex;
   align-items: center;
@@ -42,11 +47,12 @@ header {
   font-size: 1rem;
   padding: 0 .5rem;
   border: none;
-  cursor: pointer;
 }
 
 header > div:last-of-type {
+  flex: 3;
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
 }
 

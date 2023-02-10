@@ -12,8 +12,13 @@ export default function Header() {
       </div>
       <nav>
         <div className="search_container">
-          <Icon path={mdiMagnify} size={1} />
-          <input type="text" name="" id="" />
+          <Icon path={mdiMagnify} size={1} color="gray"/>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Rechercher sur Odinbook"
+          />
         </div>
       </nav>
       <div>

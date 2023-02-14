@@ -1,9 +1,37 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './register.css';
 
 export default function Register({ open, onClose }) {
   if (!open) return null;
   const [checked, setChecked] = useState(false);
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const dayRef = useRef();
+  const monthRef = useRef();
+  const yearRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const firstName = firstNameRef.current.value;
+    const lastName = lastNameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const day = dayRef.current.value;
+    const month = monthRef.current.value;
+    const year = yearRef.current.value;
+
+    console.log(new Date(year, month, day));
+
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      password,
+      birth: new Date(year, month, day)
+    };
+  };
 
   const yearList = () => {
     const year = new Date().getFullYear();
@@ -29,8 +57,9 @@ export default function Register({ open, onClose }) {
       'novembre',
       'décembre'
     ];
+
     return Array.from(new Array(12), (value, index) => (
-      <option key={1 + index} value={months[index]}>
+      <option key={1 + index} value={index}>
         {months[index].slice(0, 3)}
       </option>
     ));
@@ -69,29 +98,44 @@ export default function Register({ open, onClose }) {
           </div>
           <p>C'est rapide et facile</p>
         </div>
-        <form action="" className="register_form">
+        <form className="register_form" onSubmit={handleSubmit}>
           <div className="form_names">
-            <input type="text" placeholder="Prénom" />
-            <input type="text" placeholder="Nom de famille" />
+            <input
+              type="text"
+              id="firstName"
+              ref={firstNameRef}
+              placeholder="Prénom"
+            />
+            <input
+              type="text"
+              id="lastName"
+              ref={lastNameRef}
+              placeholder="Nom de famille"
+            />
           </div>
-          <input type="email" name="" placeholder="E-mail" />
+          <input
+            type="email"
+            id="email"
+            ref={emailRef}
+            placeholder="E-mail"
+          />
           <input
             type="password"
-            name=""
-            id=""
+            id="password"
+            ref={passwordRef}
             placeholder="Nouveau mot de passe"
           />
           <div>
             <div className="form_birth_container">
               <span>Date de naissance</span>
               <div className="form_birth">
-                <select name="" id="">
+                <select id="day" ref={dayRef}>
                   {dayList()}
                 </select>
-                <select name="" id="">
+                <select id="month" ref={monthRef}>
                   {monthList()}
                 </select>
-                <select name="" id="">
+                <select id="year" ref={yearRef}>
                   {yearList()}
                 </select>
               </div>
@@ -146,7 +190,7 @@ export default function Register({ open, onClose }) {
             </div>
           </div>
 
-          <button type="submit" className="register_btn">
+          <button type="submit" id="submitBtn" className="register_btn">
             S'inscrire
           </button>
         </form>

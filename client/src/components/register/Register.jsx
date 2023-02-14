@@ -58,6 +58,7 @@ export default function Register({ open, onClose }) {
     <section className="overlay" onClick={onClose}>
       <div
         className="modal_container"
+        id="modal"
         onClick={(e) => e.stopPropagation()}>
         <div className="modal_head">
           <div className="modal_title">

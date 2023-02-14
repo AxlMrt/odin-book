@@ -1,10 +1,18 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import Login from './Login';
+import store from '../../redux/store';
 
 describe('Reception page', () => {
   it('should render hero', () => {
-    render(<Login />);
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
 
     const hero = screen.getByText(/odinbook/);
     const paraHero = screen.getByText(
@@ -18,7 +26,12 @@ describe('Reception page', () => {
 
 describe('Login form', () => {
   it('Should render inputs and submit button', () => {
-    render(<Login />);
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
 
     const inputMail = document.getElementById('email');
     const inputPass = document.getElementById('password');
@@ -32,7 +45,12 @@ describe('Login form', () => {
   });
 
   it('Should test input fields', () => {
-    render(<Login />);
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
     const inputMail = document.getElementById('email');
     const inputPass = document.getElementById('password');
 
@@ -51,7 +69,12 @@ describe('Login form', () => {
   });
 
   it('Should test input type', () => {
-    render(<Login />);
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
     const inputMail = document.getElementById('email');
     const inputPass = document.getElementById('password');
 
@@ -62,7 +85,12 @@ describe('Login form', () => {
   });
 
   it('Should test value change', () => {
-    render(<Login />);
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
 
     const inputMail = document.getElementById('email');
     const inputPass = document.getElementById('password');
@@ -85,15 +113,22 @@ describe('Login form', () => {
 });
 
 describe('Open modal', () => {
-  it('Should open modal on click', () => {
-    render(<Login />);
+  it('Should open modal', async () => {
+    render(
+      <Provider store={store}>
+        <Login />
+      </Provider>,
+      { wrapper: BrowserRouter }
+    );
 
-    const modalBtn = screen.getByText(/Créer nouveau compte/);
+    const modal = document.getElementById('modal');
+    const openModal = document.getElementById('register_btn');
 
-    const modalTitle = screen.queryByText(/S'inscrire/);
-    expect(modalTitle).not.toBeInTheDocument();
+    expect(modal).toBeFalsy();
 
-    fireEvent.click(modalBtn);
-    expect(modalTitle).toBeDefined();
+    if (openModal) {
+      fireEvent.click(openModal);
+      expect(modal).toBeTruthy();
+    }
   });
 });

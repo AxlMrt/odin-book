@@ -1,3 +1,6 @@
 .posts {
   flex: 9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }

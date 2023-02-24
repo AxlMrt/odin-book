@@ -1,0 +1,44 @@
+:root {
+  --shadow-1: rgb(0, 0, 0, .2);
+  --comment-background: #f0f2f5;
+  --comment-background-hover: #e0e2e5;
+  --comment-text: #65676B;
+}
+
+.comment_card {
+  width: 75%;
+  background: white;
+  border-radius: max(0rem, min(.5rem, calc((100vw - .25rem - 100%) * 9999))) / .5rem;
+  box-shadow: 0 1px 2px var(--shadow-1);
+  padding: .65rem 1rem;
+}
+
+.comment_container {
+  display: flex;
+  align-items: center;
+  /* border-bottom: 2px solid var(--comment-background-hover); */
+}
+
+.comment_container > img {
+  width: 40px;
+  margin-right: .65rem;
+  object-fit: cover;
+  border-radius: max(0rem, min(.5rem, calc((100vw - .25rem - 100%) * 9999))) / .5rem;
+}
+
+.comment {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 .65rem;
+  background: var(--comment-background);
+  color: var(--comment-text);
+  font-size: 1.06rem;
+  border-radius: 1.25rem;
+  cursor: pointer;
+}
+
+.comment:hover {
+  background: var(--comment-background-hover);
+}

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authActions } from '../../redux/actions';
-import Register from '../../components/register/Register';
+import Register from '../../components/register_modal/Register';
 import './login.css';
 
 export default function Login() {

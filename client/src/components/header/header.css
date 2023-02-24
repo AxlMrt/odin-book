@@ -20,7 +20,12 @@ header {
 
 .logo {
   flex: 3;
+}
+
+.logo > h1 {
+  width: 5ch;
   color: var(--logo);
+  cursor: pointer;
 }
 
 nav {

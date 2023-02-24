@@ -89,7 +89,7 @@ export default function Register({ open, onClose }) {
         className="modal_container"
         id="modal"
         onClick={(e) => e.stopPropagation()}>
-        <div className="modal_head">
+        <div className="modal_header">
           <div className="modal_title">
             <h3>S'inscrire</h3>
             <span className="closeBtn" onClick={onClose}>

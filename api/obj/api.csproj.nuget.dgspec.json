@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/axel/Bureau/Work/odin-project/odin-book/api/api.csproj": {}
+    "C:\\Users\\axel-\\source\\repos\\AxlMrt\\odin-book\\api\\api.csproj": {}
   },
   "projects": {
-    "/home/axel/Bureau/Work/odin-project/odin-book/api/api.csproj": {
+    "C:\\Users\\axel-\\source\\repos\\AxlMrt\\odin-book\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/axel/Bureau/Work/odin-project/odin-book/api/api.csproj",
+        "projectUniqueName": "C:\\Users\\axel-\\source\\repos\\AxlMrt\\odin-book\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "/home/axel/Bureau/Work/odin-project/odin-book/api/api.csproj",
-        "packagesPath": "/home/axel/.nuget/packages/",
-        "outputPath": "/home/axel/Bureau/Work/odin-project/odin-book/api/obj/",
+        "projectPath": "C:\\Users\\axel-\\source\\repos\\AxlMrt\\odin-book\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\axel-\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\axel-\\source\\repos\\AxlMrt\\odin-book\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/axel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\axel-\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,8 +49,14 @@
               "version": "[8.0.0-preview.1.23111.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0-preview.1.23111.4, )"
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -78,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,5 @@
 global using UsersApi.Models;
+using UsersApi.Data;
 using UsersApi.Services.UsersService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUsersService, UserService>();
+builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("UsersDb"));
+builder.Services.AddScoped<DataContext, DataContext>();
+
 
 var app = builder.Build();
 

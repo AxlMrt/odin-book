@@ -12,39 +12,51 @@ namespace UsersApi.Services.UsersService
       new User() { FirstName = "Bruno", LastName = "Martin", Email = "bruno@bruno.fr", Birth = DateTime.ParseExact("25 02 1965", "d M yyyy", null), Gender = "Homme"},
     };
 
-    public List<User> AddUser(User user)
+    private readonly DataContext _context;
+
+    public UserService(DataContext context)
     {
-      usersList.Add(user);
-      return usersList;
+      _context = context;
     }
 
-    public List<User> DeleteUser(Guid id)
+    public async Task<List<User>> AddUser(User user)
     {
-      var result = usersList.Find(user => user.Id == id);
+      _context.Users.Add(user);
+      await _context.SaveChangesAsync();
+      
+      return await _context.Users.ToListAsync();
+    }
+
+    public async Task<List<User>> DeleteUser(Guid id)
+    {
+      var result = await _context.Users.FindAsync(id);
       if (result is null)
         return null;
 
-      usersList.Remove(result);
-      return usersList;
+      _context.Users.Remove(result);
+      await _context.SaveChangesAsync();
+      
+      return await _context.Users.ToListAsync();
     }
 
-    public List<User> GetAllUsers()
+    public async Task<List<User>> GetAllUsers()
     {
-      return usersList;
+      var users = await _context.Users.ToListAsync();
+      return users;
     }
 
-    public User GetSingleUser(Guid id)
+    public async Task<User> GetSingleUser(Guid id)
     {
-      var result = usersList.Find(user => user.Id == id);
+      var result = await _context.Users.FindAsync(id);
       if (result is null)
         return null;
 
       return result;
     }
 
-    public List<User> UpdateUser(User req)
+    public async Task<List<User>> UpdateUser(Guid id, User req)
     {
-      var result = usersList.Find(user => user.Id == req.Id);
+      var result = await _context.Users.FindAsync(id);
 
       result.FirstName = req.FirstName;
       result.LastName = req.LastName;
@@ -52,7 +64,9 @@ namespace UsersApi.Services.UsersService
       result.Birth = req.Birth;
       result.Gender = req.Gender;
 
-      return usersList;
+      await _context.SaveChangesAsync();
+
+      return await _context.Users.ToListAsync();
     }
   }
 }

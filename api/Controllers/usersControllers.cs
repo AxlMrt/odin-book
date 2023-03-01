@@ -17,14 +17,13 @@ namespace UsersApi.Controllers
     [HttpGet]
     public async Task<ActionResult<List<User>>> GetAllUsers()
     {
-      var result = _usersService.GetAllUsers();
-      return Ok(result);
+      return await _usersService.GetAllUsers();
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<List<User>>> GetSingleUser(Guid id)
     {
-      var result = _usersService.GetSingleUser(id);
+      var result = await _usersService.GetSingleUser(id);
       if (result is null)
         return NotFound("User not found.");
     
@@ -34,14 +33,14 @@ namespace UsersApi.Controllers
     [HttpPost]
     public async Task<ActionResult<List<User>>> AddUser(User user)
     {
-      var result = _usersService.AddUser(user);
+      var result = await _usersService.AddUser(user);
       return result;
     }
 
     [HttpPut]
-    public async Task<ActionResult<List<User>>> UpdateUser(User req)
+    public async Task<ActionResult<List<User>>> UpdateUser(Guid id, User req)
     {
-      var result = _usersService.UpdateUser(req);
+      var result = await _usersService.UpdateUser(id, req);
   
       if (result is null)
         return NotFound("User not found");
@@ -52,7 +51,7 @@ namespace UsersApi.Controllers
     [HttpDelete("{id}")]
     public async Task<ActionResult<List<User>>> DeleteUser(Guid id)
     {
-      var result = _usersService.DeleteUser(id);
+      var result = await _usersService.DeleteUser(id);
       if (result is null)
         return NotFound("User not found");
 

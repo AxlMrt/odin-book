@@ -1,14 +1,15 @@
+using System;
 namespace UsersApi.Services.UsersService
 {
   public class UserService : IUsersService
   {
     private static List<User> usersList = new()
     {
-      new User("Axel", "Martin", "axel@axel.fr", "05 04 1994", "Homme"),
-      new User("Marie-Anne", "Claudepierre", "marianne@claudepierre.fr", "02 10 1998", "Femme"),
-      new User("Brice", "Martin", "brice@martin.fr", "12 05 1998", "Autre"),
-      new User("Michele", "Martin", "michele@michele.fr", "01 02 1955", "Femme"),
-      new User("Bruno", "Martin", "bruno@bruno.fr", "25 02 1965", "Homme"),
+      new User() { FirstName = "Axel", LastName = "Martin", Email = "axel@axel.fr", Birth = DateTime.ParseExact("05 04 1994", "d M yyyy", null), Gender = "Homme" },
+      new User() { FirstName = "Marie-Anne", LastName = "Claudepierre", Email = "marianne@claudepierre.fr", Birth = DateTime.ParseExact("02 10 1998", "d M yyyy", null), Gender = "Femme" },
+      new User() { FirstName = "Brice", LastName = "Martin", Email = "brice@martin.fr", Birth = DateTime.ParseExact("12 05 1998", "d M yyyy", null), Gender = "Autre" },
+      new User() { FirstName = "Michele", LastName = "Martin", Email = "michele@michele.fr", Birth = DateTime.ParseExact("01 02 1955", "d M yyyy", null), Gender = "Femme" },
+      new User() { FirstName = "Bruno", LastName = "Martin", Email = "bruno@bruno.fr", Birth = DateTime.ParseExact("25 02 1965", "d M yyyy", null), Gender = "Homme"},
     };
 
     public List<User> AddUser(User user)

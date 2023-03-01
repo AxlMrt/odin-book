@@ -1,6 +1,7 @@
 global using UsersApi.Models;
-using UsersApi.Data;
-using UsersApi.Services.UsersService;
+global using UsersApi.Services.UsersService;
+global using Microsoft.EntityFrameworkCore;
+global using UsersApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUsersService, UserService>();
-builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("UsersDb"));
-builder.Services.AddScoped<DataContext, DataContext>();
-
-
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
